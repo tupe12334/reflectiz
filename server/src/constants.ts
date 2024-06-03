@@ -1,0 +1,1 @@
+export const VIRUS_TOTAL_API_KEY = 'VIRUS_TOTAL_API_KEY';

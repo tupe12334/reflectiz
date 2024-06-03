@@ -1,9 +1,14 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
+import { DomainService } from './domain.service';
 
 @Controller('domain')
 export class DomainController {
-  @Get()
-  getDomain() {}
+  constructor(protected readonly domainService: DomainService) {}
+
+  @Get(':domain')
+  getDomain(@Param() params: { domain: string }) {
+    return this.domainService.getDomain(params.domain);
+  }
 
   @Post()
   createDomain() {}
